@@ -1043,3 +1043,89 @@ body::before {
         height: 40px;
     }
 }
+
+/* Rotate Device Overlay (Forces Landscape on Mobile) */
+.rotate-overlay {
+    display: none;
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .rotate-overlay {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #0f140d url('bg_minecraft.png') no-repeat center center;
+        background-size: cover;
+        z-index: 10000;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    /* Dark semi-transparent background card for rotation text */
+    .rotate-overlay::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(16, 16, 16, 0.85);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: -1;
+    }
+    
+    .rotate-content {
+        max-width: 290px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 4px solid var(--mc-border-dark);
+        background: #c6c6c6;
+        box-shadow: inset -4px -4px 0px #555, inset 4px 4px 0px #fff, 0 10px 30px rgba(0,0,0,0.8);
+        padding: 30px 20px;
+        border-radius: 4px;
+    }
+
+    .phone-icon-animation {
+        font-size: 3.5rem;
+        animation: rotatePhone 2.2s infinite ease-in-out;
+        color: #373737;
+        margin-bottom: 20px;
+        line-height: 1;
+    }
+
+    .rotate-content h2 {
+        font-family: var(--mc-font-pixel);
+        font-size: 1.1rem;
+        color: #b02e2e;
+        text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        margin-bottom: 15px;
+    }
+
+    .rotate-content p {
+        font-family: var(--mc-font-text);
+        font-size: 1.7rem;
+        color: #373737;
+        line-height: 1.2;
+        font-weight: bold;
+    }
+}
+
+@keyframes rotatePhone {
+    0% {
+        transform: rotate(0deg);
+    }
+    40%, 60% {
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
