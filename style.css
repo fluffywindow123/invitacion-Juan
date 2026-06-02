@@ -829,65 +829,217 @@ body::before {
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
-    .minecraft-title {
-        font-size: 1.5rem;
-    }
-    
-    .question-title {
-        font-size: 1.8rem;
-    }
-    
-    .splash-text {
-        font-size: 0.7rem;
-        right: -20px;
-    }
-    
-    .characters-stage {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-    
-    .char-container {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    
-    .platform {
-        bottom: -20px;
-    }
-    
-    .versus-badge {
-        margin: 10px 0;
-        transform: rotate(90deg);
-        animation: pulseVersusMobile 1.5s infinite alternate ease-in-out;
-    }
-    
-    @keyframes pulseVersusMobile {
-        0% { transform: scale(0.9) rotate(90deg); }
-        100% { transform: scale(1.15) rotate(95deg); }
-    }
-    
-    .buttons-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .mc-btn {
-        width: 100%;
-        max-width: 250px;
+    body {
+        overflow-y: auto;
+        padding: 20px 10px;
+        align-items: flex-start;
     }
     
     .game-container {
-        padding: 25px 15px;
+        padding: 20px 12px;
+        width: 100%;
+        margin-top: 10px;
+        border-width: 4px;
     }
     
+    .minecraft-title {
+        font-size: 1.4rem;
+    }
+    
+    .question-title {
+        font-size: 1.4rem;
+        margin-top: 10px;
+    }
+    
+    .splash-text {
+        font-size: 0.65rem;
+        right: -15px;
+        bottom: -10px;
+    }
+    
+    /* Keep players side by side but scale down to fit small screens */
+    .characters-stage {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+    
+    .char-container {
+        transform: scale(0.8);
+    }
+    
+    .skin-wrapper {
+        height: 120px;
+    }
+    
+    .platform {
+        width: 90px;
+        height: 45px;
+        bottom: -25px;
+    }
+    
+    .cube {
+        width: 75px;
+        height: 30px;
+    }
+    
+    .face.top {
+        width: 75px;
+        height: 75px;
+        transform: rotateX(90deg) translateZ(37.5px);
+    }
+    
+    .face.front, .face.right, .face.left {
+        width: 75px;
+        height: 30px;
+        transform: rotateY(0deg) translateZ(37.5px);
+    }
+    
+    .face.right {
+        transform: rotateY(90deg) translateZ(37.5px);
+    }
+    
+    .face.left {
+        transform: rotateY(-90deg) translateZ(37.5px);
+    }
+    
+    .versus-badge {
+        font-size: 1.2rem;
+        margin-bottom: 50px;
+    }
+    
+    .tag {
+        font-size: 0.55rem;
+        padding: 4px 8px;
+        margin-bottom: 12px;
+    }
+    
+    /* Keep buttons side-by-side but smaller */
+    .buttons-container {
+        flex-direction: row;
+        gap: 15px;
+        justify-content: center;
+    }
+    
+    .mc-btn {
+        width: 120px;
+        height: 44px;
+        font-size: 0.9rem;
+        border-width: 3px;
+        box-shadow: inset -3px -3px 0px #404040, inset 3px 3px 0px #fff;
+    }
+    
+    .btn-yes:hover {
+        box-shadow: inset -3px -3px 0px rgba(0,0,0,0.3), inset 3px 3px 0px #85e05a;
+    }
+    
+    .btn-no:hover {
+        box-shadow: inset -3px -3px 0px rgba(0,0,0,0.3), inset 3px 3px 0px #ff6b6b;
+    }
+    
+    /* YES Screen celebrations scale down */
     .celebration-title {
         font-size: 2.2rem;
     }
     
+    .celebration-avatar-wrapper {
+        height: 190px;
+        margin-bottom: 30px;
+    }
+    
+    .celebration-img {
+        height: 140px;
+    }
+    
     .dialogue-text {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    
+    .dialogue-box {
+        padding: 15px 20px;
+    }
+    
+    .discord-badge {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+    
+    .btn-back {
+        max-width: 180px;
+        height: 40px;
+    }
+    
+    /* NO Screen scale down */
+    .rejection-title {
+        font-size: 1.6rem;
+    }
+    
+    .tnt-block {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .tnt-face {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .tnt-top {
+        transform: rotateX(90deg) translateZ(30px);
+    }
+    
+    .tnt-front {
+        transform: rotateY(0deg) translateZ(30px);
+    }
+    
+    .tnt-side {
+        transform: rotateY(90deg) translateZ(30px);
+    }
+}
+
+/* Landscape or short screens safety */
+@media (max-height: 580px) and (max-width: 900px) {
+    body {
+        overflow-y: auto;
+        align-items: flex-start;
+        padding: 15px 5px;
+    }
+    
+    .game-container {
+        padding: 15px;
+    }
+    
+    .title-header {
+        margin-bottom: 15px;
+    }
+    
+    .logo-container {
+        margin-bottom: 10px;
+    }
+    
+    .minecraft-title {
+        font-size: 1.6rem;
+    }
+    
+    .question-title {
+        font-size: 1.4rem;
+    }
+    
+    .characters-stage {
+        margin-bottom: 15px;
+    }
+    
+    .skin-wrapper {
+        height: 100px;
+    }
+    
+    .versus-badge {
+        margin-bottom: 40px;
+    }
+    
+    .mc-btn {
+        height: 40px;
     }
 }
