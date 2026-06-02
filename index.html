@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres jugar Minecraft hoy?</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for retro pixel styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Ambient Sound Toggle -->
+    <button id="sound-toggle" class="sound-btn" aria-label="Toggle Sound">
+        <span class="icon">🔊</span>
+    </button>
+
+    <!-- Main Container -->
+    <div class="game-container" id="main-container">
+        <!-- Minecraft Title Screen Elements -->
+        <header class="title-header">
+            <div class="logo-container">
+                <h1 class="minecraft-title">MINECRAFT</h1>
+                <div class="splash-text" id="splash">¡Para Juan!</div>
+            </div>
+            <h2 class="question-title">¿Quieres jugar Minecraft hoy?</h2>
+        </header>
+
+        <!-- Characters Showdown -->
+        <div class="characters-stage">
+            <!-- Fluffywindow123 (Host) -->
+            <div class="char-container host">
+                <div class="tag host-tag">Fluffywindow123</div>
+                <div class="skin-wrapper">
+                    <img src="https://mc-heads.net/body/Fluffywindow123/right" alt="Fluffywindow123 Skin" class="skin-img" crossorigin="anonymous">
+                </div>
+                <!-- 3D CSS Grass Block Platform -->
+                <div class="platform">
+                    <div class="cube">
+                        <div class="face top"></div>
+                        <div class="face front"></div>
+                        <div class="face right"></div>
+                        <div class="face left"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VS Badge or Cute Separator -->
+            <div class="versus-badge">⚡</div>
+
+            <!-- SYN_2406 (Juan) -->
+            <div class="char-container guest">
+                <div class="tag guest-tag">SYN_2406</div>
+                <div class="skin-wrapper">
+                    <img src="https://mc-heads.net/body/SYN_2406/left" alt="SYN_2406 Skin" class="skin-img" crossorigin="anonymous">
+                </div>
+                <!-- 3D CSS Grass Block Platform -->
+                <div class="platform">
+                    <div class="cube">
+                        <div class="face top"></div>
+                        <div class="face front"></div>
+                        <div class="face right"></div>
+                        <div class="face left"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="buttons-container">
+            <button class="mc-btn btn-yes" id="btn-yes">
+                <span class="btn-text">SÍ</span>
+            </button>
+            <button class="mc-btn btn-no" id="btn-no">
+                <span class="btn-text">NO</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Celebration Screen (YES state) -->
+    <div class="screen-overlay" id="yes-screen">
+        <canvas id="canvas-celebration"></canvas>
+        <div class="celebration-content">
+            <h2 class="celebration-title animated-text">¡SÍ! 🎉</h2>
+            
+            <div class="celebration-avatar-wrapper">
+                <!-- Large avatar of Juan -->
+                <div class="celebration-char">
+                    <img src="https://mc-heads.net/body/SYN_2406" alt="SYN_2406" class="celebration-img" crossorigin="anonymous">
+                    <div class="platform pulse-platform">
+                        <div class="cube">
+                            <div class="face top"></div>
+                            <div class="face front"></div>
+                            <div class="face right"></div>
+                            <div class="face left"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card dialogue-box">
+                <p class="dialogue-text">¡Gracias, nos vemos en Discord!</p>
+                <div class="discord-badge-container">
+                    <a href="https://discord.gg/yPn3rhnCf" target="_blank" class="discord-link">
+                        <div class="discord-badge">
+                            <span class="discord-icon">👾</span>
+                            <span>Discord: Cargando...</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <button class="mc-btn btn-back" id="btn-back" style="margin-top: 30px;">
+                <span class="btn-text">Volver al Inicio</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Screamer/Rejection Screen (NO state) -->
+    <div class="screen-overlay" id="no-screen">
+        <div class="creeper-face-bg"></div>
+        <div class="flash-red"></div>
+        <div class="rejection-content">
+            <h2 class="rejection-title" id="rejection-msg">¡Órale por culero!</h2>
+            <div class="creeper-tnt-wrapper">
+                <div class="tnt-block animated-tnt">
+                    <div class="tnt-face tnt-top"></div>
+                    <div class="tnt-face tnt-front"></div>
+                    <div class="tnt-face tnt-side"></div>
+                </div>
+            </div>
+            <div class="redirect-info">
+                <span class="redirect-spinner"></span>
+                <span>Redireccionando a Teams...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
